@@ -28,10 +28,10 @@ gulp.task('cleanJS', () => {
 gulp.task('updateJS', () => {
     console.log(`Uaktualnianie plików react i js.`);
 
-    return browserify([/*'dev/js/DataClass.js'*/,'devMain.js'])  // Pobieranie plików
+    return browserify([/*'dev/js/DataClass.js'*/,'devMainFunction.js'])  // Pobieranie plików
         .transform(babelify, {presets: ["es2015"]})
         .bundle()
-        .pipe(source('devMain.js'))
+        .pipe(source('devMainFunction.js'))
         // .pipe(gulp.dest('build'))
         .pipe(rename('main.js'))
         .pipe(streamify(concat('main.js')))
@@ -44,7 +44,7 @@ gulp.task('watchJs', () => {
     
         console.log('Uruchamianie obserwowania plików Js.');
     
-        gulp.watch('devMain.js', ['updateJS', browserSync.reload]);
+        gulp.watch('devMainFunction.js', ['updateJS', browserSync.reload]);
     
     });
 
