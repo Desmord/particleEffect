@@ -22,11 +22,6 @@ const createCancasElement = () => {
     setContext();
 }
 
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-
 const addParticle = () => {
     let p = {
         x: Math.floor(Math.random() * canvas.width) + 1,
@@ -82,11 +77,6 @@ const changeParticlePostion = () => {
     }
 }
 
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-
 const clearCanvas = () => {
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     canvasContext.beginPath();
@@ -98,7 +88,7 @@ const drawBackground = () => {
     canvasContext.fill();
 }
 
-const drawParticle = ()=>{
+const drawParticle = () => {
     for (let i = 0; i < particleArray.length; i++) {
         canvasContext.beginPath();
         canvasContext.arc(particleArray[i].x, particleArray[i].y, particleArray[i].radius, 0, 2 * Math.PI, false);
@@ -119,17 +109,12 @@ const setDrawing = () => {
     window.requestAnimationFrame(setDrawing);
 }
 
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-
 const setRezolution = () => {
     canvas.width = parentElement.clientWidth;
     canvas.height = parentElement.clientHeight;
 }
 
-const resize = ()=>{
+const resize = () => {
     setRezolution();
     createParticle();
 
@@ -139,11 +124,12 @@ const resizeWindowEvent = () => {
     window.addEventListener('resize', resize);
 }
 
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------
 
+/**
+ *  Creates and adds cavas element with particle effect into parent element.
+ *  Canvas have width and height 100% of parent.
+ * @param { DOM elment} parentElement
+ */
 const setParticleEffect = (parentElement) => {
     setParentElement(parentElement);
     createCancasElement();
@@ -153,7 +139,6 @@ const setParticleEffect = (parentElement) => {
     window.requestAnimationFrame(setDrawing);
 }
 
-setParticleEffect(document.querySelector(`.main`));
 
 module.exports = {
     setParticleEffect: setParticleEffect
